@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  jname: MyString
+  jdescription: MyText
+  price: 1
+
+two:
+  customer: two
+  jname: MyString
+  jdescription: MyText
+  price: 1

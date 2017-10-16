@@ -1,4 +1,7 @@
 class Customer < ApplicationRecord
+
+	has_many :projects
+	
 	validates :name, presence: true, length: {minimum: 5}
 	validates :phone, presence: true, length: {minimum: 10}
 	validates :address, presence: true, length: {minimum: 30}

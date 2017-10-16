@@ -1,20 +1,42 @@
-<p>
- <strong>Name: </strong>
- <%= @customer.name %>
-</p>
-<p>
-	<strong> Phone: </strong>
-	<%= @customer.phone %>
-</p>
-<p>
- <strong>Address: </strong>
- <%= @customer.address %>
-</p>
-<p>
-	<strong> Email: </strong>
-	<%= @customer.email %>
-</p>
+<h2>Customer Details</h2>
+<div class = "container">
+	<table class ="table table-hover table-striped">
+		<tr>
+			<th><strong>Name</strong></th>
+			<th><strong> Phone</strong></th>
+			<th><strong>Address</strong></th>
+			<th><strong> Email</strong></th>
+		</tr>
+		<tr>
+			<td><%= @customer.name %></td>
+			<td><%= @customer.phone %></td>
+			<td><%= @customer.address %></td>
+			<td><%= @customer.email %></td>
+		</tr>
+	</table>
+</div>
 
+<h2>Projects Done</h2>
+<%= render @customer.projects %>
+
+<h2>Add a Project:</h2>
+<%= form_with(model: [ @customer, @customer.projects.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :jname %><br>
+    <%= form.text_field :jname %>
+  </p>
+  <p>
+    <%= form.label :jdescription %><br>
+    <%= form.text_area :jdescription %>
+  </p>
+  <p>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 
 <td><%= link_to 'Edit', edit_customer_path(@customer) %></td>
 <%= link_to 'Back', customers_path %>
