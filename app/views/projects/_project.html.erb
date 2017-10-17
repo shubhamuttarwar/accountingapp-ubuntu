@@ -1,6 +1,23 @@
 
+<p>
+  <strong>Job name: </strong>
+  <%= project.jname %>
+</p>
+<p>
+  <strong>Job Description: </strong>
+  <%= project.jdescription %>
+</p>
+<p>
+  <strong>Price: </strong>
+  <%= project.price %>₹
+</p>
+<p>
+  <%= link_to 'Destroy Project', [project.customer, project],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
 
-<div class = "container">
+<!-- div class = "container">
   <table class = "table table-striped table-hover">
     <tr>
     <th><strong>Job name</strong></th>
@@ -17,3 +34,4 @@
     <% end %>
 </table>
 </div>
+ -->
