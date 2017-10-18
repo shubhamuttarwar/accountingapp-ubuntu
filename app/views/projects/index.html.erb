@@ -1,0 +1,24 @@
+<h2>Projects for <%= @customer.name %>. </h2><br>
+
+<div class = "container">
+<table class = "table table-striped  table-hover">
+	<tr>
+		<th>Job Name</th>
+		<th>Job Description</th>
+		<th>Price</th>
+	</tr>
+
+	<% @project.each do |cs| %>
+	  <tr class = "active">
+	  	<td><%= cs.jname %></td>
+	  	<td><%= cs.jdescription %></td>
+	  	<td><%= cs.price %>₹</td>
+	  	<td><%= link_to 'Show', [cs.customer, cs] %></td>
+	  	<td><%= link_to 'Edit', [:edit, cs.customer, cs] %></td>
+	  	<td><%= link_to 'Destroy', [cs.customer, cs], :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	  <% end %>
+</table>
+</div>
+
+<%= link_to 'Back', customers_path %>

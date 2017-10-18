@@ -1,0 +1,19 @@
+<h2>Project Details</h2>
+<div class = "container">
+	<table class ="table table-hover table-striped">
+		<tr>
+			<th><strong>Customer</strong></th>
+			<th><strong>Job Name</strong></th>
+			<th><strong> Job Description</strong></th>
+			<th><strong>Price</strong></th>
+		</tr>
+		<tr>
+			<td><%= @customer.name %></td>
+			<td><%= @project.jname %></td>
+			<td><%= @project.jdescription %></td>
+			<td><%= @project.price %></td>
+		</tr>
+	</table>
+</div>
+
+<%= link_to 'Back', customer_projects_path(@project.customer) %>

@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
 
-	has_many :projects
+	has_many :projects, dependent: :destroy
 	
 	validates :name, presence: true, length: {minimum: 5}
 	validates :phone, presence: true, length: {minimum: 10}
