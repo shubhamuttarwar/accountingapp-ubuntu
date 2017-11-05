@@ -32,6 +32,9 @@ class ProjectsController < ApplicationController
     	@project.destroy
     	redirect_to customer_path(@customer)
     end
+
+  def ProjectCalendar 
+  end
   private
     def project_params
       params.require(:project).permit(:jname, :jdescription, :price)
