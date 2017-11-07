@@ -6,12 +6,16 @@
 			<th><strong>Job Name</strong></th>
 			<th><strong> Job Description</strong></th>
 			<th><strong>Price</strong></th>
+			<th><strong>Start Date</strong></th>
+			<th><strong>End Date</strong></th>
 		</tr>
 		<tr>
 			<td><%= @customer.name %></td>
 			<td><%= @project.jname %></td>
 			<td><%= @project.jdescription %></td>
-			<td><%= @project.price %></td>
+			<td><%= @project.price %>₹</td>
+			<td><%= @project.start_time %></td>
+			<td><%= @project.end_time %></td>
 		</tr>
 	</table>
 </div>

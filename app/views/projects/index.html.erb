@@ -6,6 +6,8 @@
 		<th>Job Name</th>
 		<th>Job Description</th>
 		<th>Price</th>
+		<th>Start Date</th>
+		<th>End Date</th>
 	</tr>
 
 	<% @project.each do |cs| %>
@@ -13,6 +15,8 @@
 	  	<td><%= cs.jname %></td>
 	  	<td><%= cs.jdescription %></td>
 	  	<td><%= cs.price %>₹</td>
+	  	<td><%= cs.start_time.to_s(:long) %></td>
+	  	<td><%= cs.end_time.to_s(:long) %></td>
 	  	<td><%= link_to 'Show', [cs.customer, cs] %></td>
 	  	<td><%= link_to 'Edit', [:edit, cs.customer, cs] %></td>
 	  	<td><%= link_to 'Destroy', [cs.customer, cs], :confirm => 'Are you sure?', :method => :delete %></td>

@@ -21,16 +21,24 @@
 <h2>Add a Project:</h2>
 <%= form_with(model: [ @customer, @customer.projects.build ], local: true) do |form| %>
   <p>
-    <%= form.label :jname %><br>
+    <%= form.label :Project_Title %><br>
     <%= form.text_field :jname %>
   </p>
   <p>
-    <%= form.label :jdescription %><br>
+    <%= form.label :Description %><br>
     <%= form.text_area :jdescription %>
   </p>
   <p>
     <%= form.label :price %><br>
     <%= form.text_field :price %>
+  </p>
+  <p>
+    <%= form.label :Start_Date %><br>
+    <%= form.date_field :start_time %>
+  </p>
+  <p>
+    <%= form.label :End_date %><br>
+    <%= form.date_field :end_time %>
   </p>
   <p>
     <%= form.submit %>

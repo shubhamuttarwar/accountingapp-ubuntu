@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
     @project = @customer.projects.all
   end
 
+  def projectscalendar
+    @projects = Project.all
+  end
+
   def show
     @customer = Customer.find(params[:customer_id])
     @project = @customer.projects.find(params[:id])
@@ -37,6 +41,6 @@ class ProjectsController < ApplicationController
   end
   private
     def project_params
-      params.require(:project).permit(:jname, :jdescription, :price)
+      params.require(:project).permit(:jname, :jdescription, :price, :start_time, :end_time)
     end
 end
