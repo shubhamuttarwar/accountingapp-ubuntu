@@ -5,7 +5,7 @@
 
 .jumbotron {
 
-	background:url('/assets/background_index.jpg') center;
+	background:url('/assets/background_index_2.jpg') center;
 	height: 650px;
 	background-repeat:no-repeat;
 	background-size: cover;
@@ -14,9 +14,12 @@
 }
 
 .indexheading {
-	padding-top: 230px;
+    
+	padding-top: 200px;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .paragraphheading {
 	font-family: TypeWolf;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
