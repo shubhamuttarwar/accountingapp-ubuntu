@@ -44,7 +44,11 @@ GEM
       railties (>= 3.0)
       sass (>= 3.2)
     arel (8.0.0)
+    autoprefixer-rails (7.1.6)
+      execjs
     bindex (0.5.0)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -188,12 +192,15 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails (~> 3.0.0.3)
+  autoprefixer-rails
+  bootstrap-sass (~> 3.2.0)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
   fullcalendar-rails
   jbuilder (~> 2.5)
+  jquery-rails (~> 4.3, >= 4.3.1)
   momentjs-rails
   pg
   puma (~> 3.7)
