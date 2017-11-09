@@ -12,11 +12,11 @@
 //
 //= require jquery
 //= requie jquery_ujs
-//= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
 //= require rails-ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree
 
 
