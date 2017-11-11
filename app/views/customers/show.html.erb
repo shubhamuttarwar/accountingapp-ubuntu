@@ -7,6 +7,7 @@
 			<th><strong> Phone</strong></th>
 			<th><strong>Address</strong></th>
 			<th><strong> Email</strong></th>
+      <th colspan = "5"></th>
 		</tr>
 		<tr>
 			<td><%= @customer.name %></td>
@@ -14,6 +15,7 @@
 			<td><%= @customer.address %></td>
 			<td><%= @customer.email %></td>
       <td><%= link_to 'Show Projects', customer_projects_path(@customer) %></td>
+      <td><%= link_to 'Edit', edit_customer_path(@customer) %></td>
 		</tr>
 	</table>
 </div>
@@ -50,5 +52,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Back', customers_path %>
+<%= link_to 'Back', customers_path %>
 </div>

@@ -27,6 +27,7 @@
 		<th>Start Date</th>
 		<th>End Date</th>
     <th>Project Status</th>
+    <th colspan = "5"></th>
 	</tr>
     <% @projects.each do |pro| %>
     <tr>
@@ -37,6 +38,8 @@
        <td><%= pro.start_time.to_s(:long) %></td>
        <td><%= pro.end_time.to_s(:long) %></td>
        <td><%= CompleteOrNot(pro.Project_Status) %></td>
+       <td><%= link_to 'Show', [pro.customer, pro] %></td>
+       <td><%= link_to 'Edit', [:edit, pro.customer, pro] %></td>
     </tr>
     <% end %>
 </table>
