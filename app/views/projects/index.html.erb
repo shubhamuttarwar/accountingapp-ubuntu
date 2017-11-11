@@ -8,15 +8,17 @@
 		<th>Price</th>
 		<th>Start Date</th>
 		<th>End Date</th>
+		<th>Project Status</th>
 	</tr>
 
 	<% @project.each do |cs| %>
 	  <tr class = "active">
 	  	<td><%= cs.jname %></td>
 	  	<td><%= cs.jdescription %></td>
-	  	<td><%= cs.price %>₹</td>
+	  	<td><%= currency(cs.price) %></td>
 	  	<td><%= cs.start_time.to_s(:long) %></td>
 	  	<td><%= cs.end_time.to_s(:long) %></td>
+	  	<td><%= CompleteOrNot(cs.Project_Status) %></td>
 	  	<td><%= link_to 'Show', [cs.customer, cs] %></td>
 	  	<td><%= link_to 'Edit', [:edit, cs.customer, cs] %></td>
 	  	<td><%= link_to 'Destroy', [cs.customer, cs], :confirm => 'Are you sure?', :method => :delete %></td>

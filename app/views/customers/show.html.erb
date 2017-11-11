@@ -1,5 +1,6 @@
-<h2>Customer Details</h2>
+
 <div class = "container">
+  <h2>Customer Details</h2>
 	<table class ="table table-hover table-striped">
 		<tr>
 			<th><strong>Name</strong></th>
@@ -17,7 +18,7 @@
 	</table>
 </div>
 
-
+<div class = "container">
 <h2>Add a Project:</h2>
 <%= form_with(model: [ @customer, @customer.projects.build ], local: true) do |form| %>
   <p>
@@ -41,9 +42,13 @@
     <%= form.date_field :end_time %>
   </p>
   <p>
+  <%= form.label :Project_Status %>
+  <%= form.select :Project_Status, [['In Progress',false],['Completed', true]] %> 
+  <p>
+  <p>
     <%= form.submit %>
   </p>
 <% end %>
 
-<td><%= link_to 'Edit', edit_customer_path(@customer) %></td>
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Edit', edit_customer_path(@customer) %> | <%= link_to 'Back', customers_path %>
+</div>

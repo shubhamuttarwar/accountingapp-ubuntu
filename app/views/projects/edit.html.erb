@@ -31,6 +31,9 @@
    <%= form.date_field :end_time %>
 </p>
 <p>
+  <%= form.label :Project_Status %>
+  <%= form.select :Project_Status, [['Completed', true],['In Progress',false]] %> 
+<p>
   <%= form.submit %>
 </p>
  
