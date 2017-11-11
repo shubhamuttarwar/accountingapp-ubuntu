@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     first_of_month = Date.current.beginning_of_month
     last_of_month = Date.current.end_of_month
     @projects_full = Project.where('start_time BETWEEN ? AND ?', first_of_month, last_of_month)
-    @projects = @projects_full.where('Project_Status = ?', false)
+    @projects = @projects_full.where('projects.Project_Status = ?', false)
     @complete_projects = @projects_full.where('projects.Project_Status = ?', true) 
   end
 
