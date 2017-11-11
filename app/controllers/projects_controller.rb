@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
   end
 
   def projectscalendar
-    @projects = Project.all
+    first_of_month = Date.current.beginning_of_month
+    last_of_month = Date.current.end_of_month
+    @projects = Project.where('start_time BETWEEN ? AND ?', first_of_month, last_of_month) 
   end
 
   def show
@@ -15,8 +17,14 @@ class ProjectsController < ApplicationController
 
   def create
     @customer = Customer.find(params[:customer_id])
-    @project = @customer.projects.create(project_params)
+    if :end_time > :start_time
+       @project = @customer.projects.create(project_params)
+    else
+      flash[:error] = "The END DATE cannot be earlier than the START DATE!"
+    end
     redirect_to customer_path(@customer)
+      
+   
   end
 
   def edit
@@ -37,7 +45,8 @@ class ProjectsController < ApplicationController
     	redirect_to customer_path(@customer)
     end
 
-  def ProjectCalendar 
+  def ProjectCalendar
+   
   end
   private
     def project_params
