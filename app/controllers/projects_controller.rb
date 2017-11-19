@@ -18,15 +18,10 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.pdf do 
-        pdf = Prawn::Document.new 
-        pdf.text "hello world!"
-        send_data pdf.render, filename: "Order_for #{@customer.name}_delivered_on #{@project.end_time}.pdf",
-                              type: "application/pdf",
-                              dispositon: "inline"
+      format.json 
+      format.pdf {render template: 'projects/order', pdf: 'Order', layout: 'pdf.html'}
       end
     end
-  end
 
   def create
     @customer = Customer.find(params[:customer_id])

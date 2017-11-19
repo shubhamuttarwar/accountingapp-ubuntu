@@ -9,6 +9,7 @@
 			<th><strong>Price</strong></th>
 			<th><strong>Start Date</strong></th>
 			<th><strong>End Date</strong></th>
+			<th><strong>Status</strong></th>
 		</tr>
 		<tr>
 			<td><%= @customer.name %></td>
@@ -17,10 +18,11 @@
 			<td><%= @project.price %>₹</td>
 			<td><%= @project.start_time %></td>
 			<td><%= @project.end_time %></td>
+			<td><%= CompleteOrNot(@project.Project_Status) %></td>
 		</tr>
 	</table>
 </div>
 <%= link_to 'Back', url_for(:back) %>
+| <%= link_to "Printable Receipt (PDF)",customer_project_path(@project.customer_id , @project , format: "pdf") %>
 </div>
 
-<!--<%= link_to 'Back', customer_projects_path(@project.customer) %>-->
