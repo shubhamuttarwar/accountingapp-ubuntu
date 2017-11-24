@@ -41,7 +41,7 @@
 	  	<td><%= cs.address %></td>
 	  	<td><%= cs.email.downcase %></td>
 	  	<td><%= link_to 'Show Projects', customer_projects_path(cs) %></td>
-	  	<td><%= link_to 'Show',customer_path(cs) %></td>
+	  	<td><%= link_to 'Add Project',customer_path(cs) %></td>
 	  	<td><%= link_to 'Edit', edit_customer_path(cs) %></td>
 	  	<td><%= link_to 'Destroy', customer_path(cs),
               method: :delete,

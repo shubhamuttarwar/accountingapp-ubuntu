@@ -10,6 +10,7 @@
 			<th><strong>Start Date</strong></th>
 			<th><strong>End Date</strong></th>
 			<th><strong>Status</strong></th>
+			<th colspan = 3></th>
 		</tr>
 		<tr>
 			<td><%= @customer.name %></td>
@@ -19,10 +20,87 @@
 			<td><%= @project.start_time %></td>
 			<td><%= @project.end_time %></td>
 			<td><%= CompleteOrNot(@project.Project_Status) %></td>
+			<% if @project.Project_Status %>
+			   <td><%= link_to "Printable Receipt (PDF)",customer_project_path(@project.customer_id , @project , format: "pdf") %></td>   
+			<% end %>
 		</tr>
 	</table>
 </div>
-<%= link_to 'Back', url_for(:back) %>
-| <%= link_to "Printable Receipt (PDF)",customer_project_path(@project.customer_id , @project , format: "pdf") %>
+<%= link_to 'Back', customer_projects_path %>
 </div>
 
+
+<% if !@project.Project_Status %>
+<p><br></p>
+<div class = "container">
+<table class = "table ">
+	<tr>
+		<td>
+<h2>Add a Add-On:</h2>
+<%= form_with(model: [@project, @project.addons.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :Service_Name %><br>
+    <%= form.text_field :service %>
+  </p>
+  <p>
+    <%= form.label :Description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.label :price %><br>
+    <%= form.number_field :price %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</td>
+<td>
+	<h2> Add-ons Associated with this Project</h2><br>
+	<table class = "table table-hover table-striped">
+		<tr>
+			<th>Service</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th colspan = 3></th>
+		</tr>
+		<% @addons.each do |cs| %>
+		<tr>
+			<td><%= cs.service %></td>
+			<td><%= cs.description %></td>
+			<td><%= currency(cs.price) %></td>
+			<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+		<% end %>
+	</table>
+</td>
+</div>
+<% else %>
+<p><br></p>
+<div class = "container">
+	<h3> Add-ons Associated with this Project</h3><br>
+<table class = "table table-hover table-striped">
+		<tr>
+			<th>Service</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th colspan = 3></th>
+		</tr>
+		<% @addons.each do |cs| %>
+		<tr>
+			<td><%= cs.service %></td>
+			<td><%= cs.description %></td>
+			<td><%= currency(cs.price) %></td>
+			<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+<% end %>
+
+<div class = "container">
+<p><br></p>
+<hr>
+<% total_project_cost = @project.price + @addons.sum(:price) %>
+<h3> The Total cost of the Project : <%= currency(total_project_cost) %></h3>
+</div>
