@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= requie jquery_ujs
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap-sprockets
