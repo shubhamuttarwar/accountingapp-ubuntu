@@ -91,16 +91,15 @@
 			<td><%= cs.service %></td>
 			<td><%= cs.description %></td>
 			<td><%= currency(cs.price) %></td>
+			<td><%= link_to 'Edit', [:edit, cs.project, cs] %></td>
 			<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete %></td>
 		</tr>
 		<% end %>
 	</table>
+	<p><br></p>
+	<hr>
+	<% total_project_cost = @project.price + @addons.sum(:price) %>
+	<h4> Project Cost:  <%= currency(@project.price)%> + Addons Cost:  <%= currency(@addons.sum(:price)) %></h4>
+	<h3>Total Cost: <%= currency(total_project_cost) %></h3>
 </div>
 <% end %>
-
-<div class = "container">
-<p><br></p>
-<hr>
-<% total_project_cost = @project.price + @addons.sum(:price) %>
-<h3> The Total cost of the Project : <%= currency(total_project_cost) %></h3>
-</div>

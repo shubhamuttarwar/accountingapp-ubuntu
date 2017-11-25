@@ -1,0 +1,33 @@
+<div class = "container">
+<%= form_for([@addon.project, @addon]) do |form| %>
+ <% if @addon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@addon.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @addon.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+  <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+   <%= form.label :Service_Name %><br>
+   <%= form.text_field :service %>
+</p>
+<p>
+   <%= form.label :Description %><br>
+   <%= form.text_area :description %>
+</p>
+<p>
+   <%= form.label :Price %><br>
+   <%= form.text_field :price %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+ 
+<% end %>
+<%= link_to 'Back', url_for(:back) %>
+<!--<%= link_to 'Back', customer_projects_path(@project.customer) %>-->
+</div>
