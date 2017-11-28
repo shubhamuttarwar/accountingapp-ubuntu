@@ -31,7 +31,7 @@
 	</tr>
     <% @projects.each do |pro| %>
     <tr>
-       <td><%=  Customer.find(pro.customer_id).name %></td>
+       <td><%=  Customer.find(pro.customer_id).name.capitalize %> <%=  Customer.find(pro.customer_id).lastname.capitalize %></td>
        <td><%= pro.jname %></td>
        <td><%= pro.jdescription %></td>
        <td><%= currency(pro.price) %></td>

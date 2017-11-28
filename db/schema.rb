@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124133856) do
+ActiveRecord::Schema.define(version: 20171128050928) do
 
   create_table "addons", force: :cascade do |t|
     t.string "service"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171124133856) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lastname"
   end
 
   create_table "invoicing_ledger_items", force: :cascade do |t|

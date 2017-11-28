@@ -16,11 +16,18 @@
       <%= form_with model: @customer, local: true do |form| %>
 
       <div class = "form-group">
-        <div class = "control-label col-sm-2">
-          <%= form.label :name %>
+        <div class = "control-label col-xs-2">
+          <%= form.label :FirstName %>
         </div>
-        <div class = "col-sm-10">
+        <div class = "col-md-4">
            <%= form.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class = "control-label col-xs-2">
+          <%= form.label :lastname %>
+        </div>
+        <div class = "col-md-4">
+           <%= form.text_field :lastname, class: "form-control" %>
         </div>
       
       <p>

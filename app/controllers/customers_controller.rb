@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 	http_basic_authenticate_with name: "shubham", password: "shubham09", except: [:index,:show]
     def index
-    	@customer = Customer.all
+    	@customer = Customer.search(params[:search])
     end
 
     def show
@@ -46,7 +46,7 @@ class CustomersController < ApplicationController
 	private
 
 	def customer_params
-		params.require(:customer).permit(:name,:phone,:address,:email)  
+		params.require(:customer).permit(:name,:lastname,:phone,:address,:email)  
 	end
 
 end
