@@ -45,8 +45,12 @@
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <%= yield %>
 
+    <div class = "conatiner">
+    <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
