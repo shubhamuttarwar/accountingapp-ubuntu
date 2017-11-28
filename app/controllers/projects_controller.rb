@@ -22,6 +22,8 @@ class ProjectsController < ApplicationController
       format.json 
       format.pdf {render template: 'projects/order', pdf: 'Order', layout: 'pdf.html'}
       end
+
+    @skip_footer = true
     end
 
   def create

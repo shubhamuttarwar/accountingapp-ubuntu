@@ -1,56 +1,81 @@
 
 <div class = "container">
-  <h2>Customer Details</h2>
-	<table class ="table table-hover table-striped">
-		<tr>
-			<th><strong>Name</strong></th>
-			<th><strong> Phone</strong></th>
-			<th><strong>Address</strong></th>
-			<th><strong> Email</strong></th>
-      <th colspan = "5"></th>
-		</tr>
-		<tr>
-			<td><%= @customer.name %> <%= @customer.lastname %></td>
-			<td><%= @customer.phone %></td>
-			<td><%= @customer.address %></td>
-			<td><%= @customer.email %></td>
-      <td><%= link_to 'Show Projects', customer_projects_path(@customer) %></td>
-      <td><%= link_to 'Edit', edit_customer_path(@customer) %></td>
-		</tr>
-	</table>
+  <div class = "col-sm-offset-2">
+    <h2>Add a Project</h2>
+  </div>
+
+<div class = "row">
+  <div class = "col-xs-12">
+<%= form_with(model: [ @customer, @customer.projects.build ], local: true, :html => {class: "form-horizontal", role: "form"}) do |form| %>
+  <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :Project_Title %>
+    </div>
+    <div class = "col-sm-6">
+      <%= form.text_field :jname, class: "form-control", placeholder: "Project Title", autofocus: true %>
+    </div>
+  </div>
+   
+   <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :Description %>
+    </div>
+    <div class = "col-sm-6">
+      <%= form.text_area :jdescription,rows: 5 ,class: "form-control",placeholder: "Description of Project" %>
+    </div>
+  </div>
+   
+   <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :price %>
+    </div>
+    <div class = "col-sm-3">
+      <div class = "input-group">
+        <div class = "input-group-addon">₹</div>
+          <%= form.number_field :price, class: "form-control", id: "exampleInputAmount" , placeholder: "Price" %>
+        <div class = "input-group-addon">.00</div>
+      </div>
+    </div>
+  </div>
+   
+   <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :Start_Date %>
+    </div>
+    <div class = "col-sm-3">
+      <%= form.date_field :start_time, class: "form-control" %>
+    </div>
+   </div>
+  
+  <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :End_date %>
+    </div>
+    <div class = "col-sm-3">
+      <%= form.date_field :end_time, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class = "form-group">
+    <div class = "control-label col-sm-2">
+      <%= form.label :Project_Status %>
+    </div>
+    <div class = "col-sm-4">
+      <%= form.select :Project_Status, [['In Progress',false],['Completed', true]], class: "form-control" %>
+    </div>
+  </div> 
+  
+  <div class = "form-group">
+    <div class = "col-sm-offset-2 col-sm-10">
+        <%= form.submit class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+<% end %>
+</div>
 </div>
 
-<div class = "container">
-<h2>Add a Project:</h2>
-<%= form_with(model: [ @customer, @customer.projects.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :Project_Title %><br>
-    <%= form.text_field :jname %>
-  </p>
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :jdescription %>
-  </p>
-  <p>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </p>
-  <p>
-    <%= form.label :Start_Date %><br>
-    <%= form.date_field :start_time %>
-  </p>
-  <p>
-    <%= form.label :End_date %><br>
-    <%= form.date_field :end_time %>
-  </p>
-  <p>
-  <%= form.label :Project_Status %>
-  <%= form.select :Project_Status, [['In Progress',false],['Completed', true]] %> 
-  <p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', customers_path %>
+<div class = "col-sm-offset-2">
+  <%= link_to 'Back to customers listing', customers_path %> | <%= link_to 'Show Projects', customer_projects_path(@customer) %> for <%= @customer.name %> <%= @customer.lastname %> | 
+  <%= link_to 'Edit Details', edit_customer_path(@customer) %> of <%= @customer.name %> <%= @customer.lastname %>
+</div>
 </div>
