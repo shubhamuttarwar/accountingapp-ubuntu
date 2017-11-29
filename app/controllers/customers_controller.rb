@@ -30,7 +30,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.find(params[:id])
 
 		if @customer.update(customer_params)
-			redirect_to @customer
+			redirect_to customers_path
 		else
 			render 'edit'
 		end

@@ -75,7 +75,7 @@
 </div>
 
 <div class = "col-sm-offset-2">
-  <%= link_to 'Back to customers listing', customers_path %> | <%= link_to 'Show Projects', customer_projects_path(@customer) %> for <%= @customer.name %> <%= @customer.lastname %> | 
-  <%= link_to 'Edit Details', edit_customer_path(@customer) %> of <%= @customer.name %> <%= @customer.lastname %>
+  <%= link_to 'Back to customers listing', customers_path, class: 'btn btn-warning btn-sm' %> | <%= link_to 'Show Projects', customer_projects_path(@customer), class: 'btn btn-info btn-sm' %> for <%= @customer.name %> <%= @customer.lastname %> | 
+  <%= link_to 'Edit Details', edit_customer_path(@customer), class: 'btn btn-primary btn-sm' %> of <%= @customer.name %> <%= @customer.lastname %>
 </div>
 </div>
