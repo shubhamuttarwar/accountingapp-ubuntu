@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
 	
 	validates :name, presence: true, length: {minimum: 3}
 	validates :lastname, presence: true, length: {minimum: 3}
-	validates :phone, presence: true, length: {minimum: 10}
+	validates :phone, presence: true, length: 10
 	validates :address, presence: true, length: {minimum: 30}
 	validates :email, presence: true
 
