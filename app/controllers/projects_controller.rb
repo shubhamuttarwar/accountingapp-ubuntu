@@ -46,7 +46,8 @@ class ProjectsController < ApplicationController
 
   def update
     @customer = Customer.find(params[:customer_id])
-    @project = @customer.projects.update(project_params)
+    @project = @customer.projects.find(params[:id])
+    @project.update(project_params)
     redirect_to customer_projects_path
   end
     
