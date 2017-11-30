@@ -20,7 +20,7 @@
 			<td><%= @project.price %>₹</td>
 			<td><%= @project.start_time.to_s(:long) %></td>
 			<td><%= @project.end_time.to_s(:long) %></td>
-			<td><%= CompleteOrNot(@project.Project_Status) %></td>
+			<td><%= CompleteOrNot(@project.project_status) %></td>
 			<% if @project.Project_Status %>
 			   <td><%= link_to "Printable Receipt (PDF)",customer_project_path(@project.customer_id , @project , format: "pdf"), class: 'btn btn-success' %></td>   
 			<% end %>

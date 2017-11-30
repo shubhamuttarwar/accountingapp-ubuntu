@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
     first_of_month = Date.current.beginning_of_month
     last_of_month = Date.current.end_of_month
     @projects_full = Project.where('start_time BETWEEN ? AND ?', first_of_month, last_of_month)
-    @projects = @projects_full.where('Project_Status = ?', false)
-    @complete_projects = @projects_full.where('Project_Status = ?', true) 
+    @projects = @projects_full.where('project_status = ?', false)
+    @complete_projects = @projects_full.where('project_status = ?', true) 
   end
 
   def show
@@ -65,12 +65,12 @@ class ProjectsController < ApplicationController
   def totalsales
     beginning_of_month = Date.today.beginning_of_month
     end_of_month = Date.today.end_of_month
-    @project = Project.where("end_time >= ? AND end_time <= ? AND Project_Status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 10)
+    @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 10)
     @sum_of_addons = 0
   end
 
   private
     def project_params
-      params.require(:project).permit(:jname, :jdescription, :price, :start_time, :end_time,:Project_Status)
+      params.require(:project).permit(:jname, :jdescription, :price, :start_time, :end_time,:project_status)
     end
 end

@@ -29,7 +29,7 @@
 	  	<td><%= currency(cs.price) %></td>
 	  	<td><%= cs.start_time.to_s(:long) %></td>
 	  	<td><%= cs.end_time.to_s(:long) %></td>
-	  	<td><%= CompleteOrNot(cs.Project_Status) %></td>
+	  	<td><%= CompleteOrNot(cs.project_status) %></td>
 	  	<td><%= link_to 'Show', [cs.customer, cs], class: 'btn btn-info btn-sm' %></td>
 	  	<td><%= link_to 'Edit', [:edit, cs.customer, cs], class: 'btn btn-primary btn-sm' %></td>
 	  	<td><%= link_to 'Destroy', [cs.customer, cs], :confirm => 'Are you sure?', :method => :delete,class: 'btn btn-danger btn-sm' %></td>

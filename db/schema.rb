@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128050928) do
+ActiveRecord::Schema.define(version: 20171130150410) do
 
   create_table "addons", force: :cascade do |t|
     t.string "service"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20171128050928) do
     t.datetime "updated_at", null: false
     t.date "start_time"
     t.date "end_time"
-    t.boolean "Project_Status"
+    t.boolean "project_status"
     t.index ["customer_id"], name: "index_projects_on_customer_id"
   end
 
