@@ -1,0 +1,41 @@
+
+
+<div class = "container">
+<%= link_to "Customers Listing", customers_path, class: 'btn btn-warning btn-sm' %>
+<h1> Total Sales of <%= Date::MONTHNAMES[Date.today.month] %></h1>
+
+<table class = "table">
+	<tr>
+		<th> Customer Name </th>
+		<th> Project Name</th>
+		<th> Description </th>
+		<th> Project Cost </th>
+		<th> Addons Cost</th>
+		<th> Started At </th>
+		<th> Ended At </th>
+		<th> Total Cost</th>
+	</tr>
+	<% @project.each do |pro| %>
+	<% @sum_of_addons = @sum_of_addons + pro.addons.sum(:price)%>
+	<tr>
+		<td><%= Customer.find(pro.customer_id).name.capitalize %> <%= Customer.find(pro.customer_id).lastname.capitalize %></td>
+		<td><%= pro.jname %></td>
+		<td><%= pro.jdescription %></td>
+		<td><%= currency(pro.price) %></td>
+		<td><%= currency(pro.addons.sum(:price)) %></td>
+		<td><%= pro.start_time.to_s(:long) %></td>
+		<td><%= pro.end_time.to_s(:long) %></td>
+		<td><%= currency(pro.price + pro.addons.sum(:price)) %></td>
+	</tr>
+	<% end %>
+	<tfoot>
+		<tr>
+			<th><strong>Grand Total</strong></th>
+			<td><strong><%= currency(@project.sum(:price) + @sum_of_addons) %></strong> only/-</td>
+			<th colspan = "10"></th>
+		</tr>
+	</tfoot>
+</table>
+
+<%= will_paginate @project, renderer: BootstrapPagination::Rails  %>
+</div>

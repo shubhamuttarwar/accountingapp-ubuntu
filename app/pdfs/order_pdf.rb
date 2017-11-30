@@ -1,8 +1,9 @@
 class OrderPdf < Prawn::Document
-	def initialize(project, customer)
+	def initialize(project, customer, addons)
 		super(top_margin: 70 )
 		@project = project
 		@customer = customer
+		@addon = addons
 		order_number
 		line_items
 	end

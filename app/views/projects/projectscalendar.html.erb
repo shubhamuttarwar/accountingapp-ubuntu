@@ -8,7 +8,7 @@
   <% pro.each do |project| %>
      <div>
       <ul>
-        <li><%= project.jname %></li>
+        <li><%= project.jname %> - <%=  Customer.find(project.customer_id).name.capitalize %> <%=  Customer.find(project.customer_id).lastname.capitalize %></li>
       </ul>
      </div>
   <% end %>
@@ -38,8 +38,8 @@
        <td><%= pro.start_time.to_s(:long) %></td>
        <td><%= pro.end_time.to_s(:long) %></td>
        <td><%= CompleteOrNot(pro.Project_Status) %></td>
-       <td><%= link_to 'Show', [pro.customer, pro] %></td>
-       <td><%= link_to 'Edit', [:edit, pro.customer, pro] %></td>
+       <td><%= link_to 'Show', [pro.customer, pro], class: 'btn btn-info btn-sm' %></td>
+       <td><%= link_to 'Edit', [:edit, pro.customer, pro], class: 'btn btn-primary btn-sm' %></td>
     </tr>
     <% end %>
 </table>
@@ -60,7 +60,7 @@
   </tr>
     <% @complete_projects.each do |pro| %>
     <tr>
-       <td><%=  Customer.find(pro.customer_id).name %></td>
+       <td><%=  Customer.find(pro.customer_id).name %> <%=  Customer.find(pro.customer_id).lastname %></td>
        <td><%= pro.jname %></td>
        <td><%= pro.jdescription %></td>
        <td><%= currency(pro.price) %></td>

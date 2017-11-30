@@ -10,7 +10,7 @@
     <title>Bootstrap Tables</title>
     <!-- Bootstrap-->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -34,6 +34,7 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Customers', controller: 'customers' %></li>
         <li ><a href="/projectscalendar">Projects <span class="sr-only">(current)</span></a></li>
+        <li><a href="/totalsales">Sales For <%= Date::MONTHNAMES[Date.today.month] %> <span class="sr-only">(current)</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>

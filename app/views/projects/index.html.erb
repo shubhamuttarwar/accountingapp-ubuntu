@@ -1,5 +1,6 @@
 
 <div class = "container">
+<%= link_to 'Back', customers_path, class: 'btn btn-warning btn-sm' %>
 <h2>Projects for <%= @customer.name.capitalize %> <%=@customer.lastname.capitalize %> </h2><br>
 <table class = "table table-striped  table-hover" >
 	<tr>
@@ -26,5 +27,8 @@
 	  </tr>
 	  <% end %>
 </table>
-<%= link_to 'Back', customers_path, class: 'btn btn-warning btn-sm' %>
+
+<div class = "container">
+	<%= will_paginate @project,renderer: BootstrapPagination::Rails %>
+</div>
 </div>

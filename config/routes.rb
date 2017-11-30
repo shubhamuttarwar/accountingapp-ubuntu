@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get '/projectscalendar' => 'projects#projectscalendar'
+  get '/totalsales' => 'projects#totalsales'
   resources :customers do
   	resources :projects 
   end

@@ -44,7 +44,8 @@ gem 'momentjs-rails'
 gem 'autoprefixer-rails'
 gem 'prawn'
 gem 'prawn-table', '~> 0.1.0'
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 group :development, :test do

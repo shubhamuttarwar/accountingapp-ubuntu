@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 	def index
     @customer = Customer.find(params[:customer_id])
-    @project = @customer.projects.all
+    @project = @customer.projects.all.paginate(:page => params[:page], per_page: 7)
   end
 
   def projectscalendar
@@ -60,6 +60,14 @@ class ProjectsController < ApplicationController
   def ProjectCalendar
    
   end
+
+  def totalsales
+    beginning_of_month = Date.today.beginning_of_month
+    end_of_month = Date.today.end_of_month
+    @project = Project.where("end_time >= ? AND end_time <= ? AND Project_Status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 10)
+    @sum_of_addons = 0
+  end
+
   private
     def project_params
       params.require(:project).permit(:jname, :jdescription, :price, :start_time, :end_time,:Project_Status)
