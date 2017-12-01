@@ -1,25 +1,32 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 <div class = "invoice-date">
-<p> Invoice Date:  <i><%= (Date.today).to_s(:long) %></i></p>
+<p><i>Invoice Date: <%= (Date.today).to_s(:long) %></i></p>
 </div>
 <div class = "container">
 <div id = "header">
-  <h1>Order for <%= @customer.name.upcase %> <%= @customer.lastname.upcase %> </h1>
+  <h1 align = "center"><strong> Ajey Gampawar Associates</strong></h1>
+  <p align = "center">SS-6, Second Floor, Golden Palace, W High Ct Rd, Beside Sudama Theater, Dharampeth, Nagpur, Maharashtra 440010<br>Phone: 0712 329 1011</p>
+  <p align = "center"></p>
 </div>
 </div>
 <p><br></p>
 
 <div class = "container">
+	<h4>Order Details </h4>
 <table class = "table">
 	<tr>
-		<th>Job Name</th>
-		<th>Job Description</th>
+		<th>Customer Name</th>
+		<th>Project Name</th>
+		<th>Description</th>
 		<th>Price</th>
 		<th>Start Date</th>
 		<th>End Date</th>
 	</tr>
 
 	<tr class = "active">
+		<td><%= @customer.name.capitalize %> <%= @customer.lastname.capitalize %></td>
 	  	<td><%= @project.jname %></td>
 	  	<td><%= @project.jdescription %></td>
 	  	<td><%= currency(@project.price) %></td>
@@ -28,6 +35,10 @@
 	  </tr>
 </table>
 
+<% if @project.addons.empty? %>
+<h5> Addons: Nil</h5>
+<% else %>
+    <h4>Order Addons Details </h4>
     <table class= "table">
     	<tr>
     		<th>Service Name</th>
@@ -39,12 +50,14 @@
     		<tr>
     			<td><%= addon.service %></td>
     			<td><%= addon.description %></td>
-    			<td><%= addon.price %></td>
+    			<td><%= currency(addon.price) %></td>
     		</tr>
     	<% end %>
 	</table>
 
-
+<% end %>
 	<% total_cost_of_project = @project.price + @project.addons.sum(:price) %>
-	<p> Total Cost : <%= currency(total_cost_of_project) %></p>
+	<p><strong> Total Cost : <%= currency(total_cost_of_project) %></strong></p><br><br>
+	<p style = "float: right"> Authoratory Signature<br>
+		                       (Ajey Gampawar)</p>
 </div>

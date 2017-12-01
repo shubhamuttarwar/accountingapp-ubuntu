@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json 
-      format.pdf {render template: 'projects/order', pdf: 'Order', layout: 'pdf.html'}
+      format.pdf {render template: 'projects/order', pdf: 'Order', layout: 'pdf.html', :page_size => "Letter"}
       end
 
     @skip_footer = true
