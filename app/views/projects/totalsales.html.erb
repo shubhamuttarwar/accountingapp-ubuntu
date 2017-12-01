@@ -1,9 +1,12 @@
 
-
 <div class = "container">
 <%= link_to "Customers Listing", customers_path, class: 'btn btn-warning btn-sm' %>
+<p><br></p>
+<% if @project.empty? %>
+<h1 align = "center"> Oops!</h1>
+<h2 align = "center">There are currently no completed projects for <%= Date::MONTHNAMES[Date.today.month]%></h2>
+<% else %>
 <h1> Total Sales of <%= Date::MONTHNAMES[Date.today.month] %></h1>
-
 <table class = "table">
 	<tr>
 		<th> Customer Name </th>
@@ -38,4 +41,6 @@
 </table>
 
 <%= will_paginate @project, renderer: BootstrapPagination::Rails  %>
+
+<% end %>
 </div>
