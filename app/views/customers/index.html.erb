@@ -24,6 +24,11 @@
 
  <% else %>
 <p><br></p>
+
+<% if @customer.empty? %>
+<h1 align = "center"> Oops! </h1>
+<h2 align= "center">Currently there are no Customers created!</h2><br>
+<% else %>
 <table class = "table table-hover">
 	<tr>
 		<th>Name</th>

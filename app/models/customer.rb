@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
 
     def self.search(search)
     	if search
-    		Customer.where("lastname LIKE ? OR name LIKE ?", "%#{search}%", "%#{search}")
+    		Customer.where("lastname ILIKE ? OR name ILIKE ?", "%#{search}%", "%#{search}")
     	else
     		Customer.all.order("created_at DESC").limit(5)
     	end
