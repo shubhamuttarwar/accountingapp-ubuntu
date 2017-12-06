@@ -33,7 +33,7 @@
 	<% end %>
 	<tfoot>
 		<tr>
-			<th><strong>Grand Total</strong></th>
+			<th><strong>Grand Total of <%= Date::MONTHNAMES[Date.today.month]%></strong></th>
 			<td><strong><%= currency(@project.sum(:price) + @sum_of_addons) %></strong> only/-</td>
 			<th colspan = "10"></th>
 		</tr>
