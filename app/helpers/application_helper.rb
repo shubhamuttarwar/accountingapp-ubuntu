@@ -5,6 +5,6 @@ module ApplicationHelper
 	end
 
 	def currency(price)
-		return "#{price}₹"
+		number_to_currency(price, options = {:unit => '₹'})
 	end
 end
