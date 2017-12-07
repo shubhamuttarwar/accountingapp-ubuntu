@@ -1,0 +1,11 @@
+Steps
+1.Extract to C drive
+2.cd pgsql>bin>initdb -D ..\data
+
+to start server
+3. pgsql>bin> postgres -D ..\data or
+pg_ctl -D ^"^.^.^\data^" -l logfile start
+
+4. Add the gem 'pg'
+5. bundle exec rake db:create
+6. bundle exec rake db:migrate

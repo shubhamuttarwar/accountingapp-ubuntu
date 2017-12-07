@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171130150410) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addons", force: :cascade do |t|
     t.string "service"
     t.integer "price"
     t.text "description"
-    t.integer "project_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_addons_on_project_id"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20171130150410) do
   end
 
   create_table "invoicing_ledger_items", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
     t.string "type"
     t.datetime "issue_date"
     t.string "currency", limit: 3, null: false
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171130150410) do
   end
 
   create_table "invoicing_line_items", force: :cascade do |t|
-    t.integer "ledger_item_id"
+    t.bigint "ledger_item_id"
     t.string "type"
     t.decimal "net_amount", precision: 20, scale: 4
     t.decimal "tax_amount", precision: 20, scale: 4
@@ -80,7 +83,7 @@ ActiveRecord::Schema.define(version: 20171130150410) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.string "jname"
     t.text "jdescription"
     t.integer "price"
@@ -92,4 +95,5 @@ ActiveRecord::Schema.define(version: 20171130150410) do
     t.index ["customer_id"], name: "index_projects_on_customer_id"
   end
 
+  add_foreign_key "projects", "customers"
 end
