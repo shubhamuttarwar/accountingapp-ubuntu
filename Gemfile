@@ -19,7 +19,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 # Use CoffeeScript for .coffee assets and views
 
 gem 'invoicing'
@@ -38,8 +39,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'coffee-script-source', '1.8.0'
 gem "simple_calendar", "~> 2.0"
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+
+
 
 gem 'autoprefixer-rails'
 gem 'prawn'
@@ -48,6 +49,8 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
