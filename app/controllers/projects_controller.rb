@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
   def totalsales
     beginning_of_month = Date.today.beginning_of_month
     end_of_month = Date.today.end_of_month
-    @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 10)
+    @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 7)
     @sum_of_addons = 0
   end
 

@@ -31,16 +31,16 @@
 		<td><%= currency(pro.price + pro.addons.sum(:price)) %></td>
 	</tr>
 	<% end %>
-	<tfoot>
-		<tr>
-			<th><strong>Grand Total of <%= Date::MONTHNAMES[Date.today.month]%></strong></th>
-			<td><strong><%= currency(@project.sum(:price) + @sum_of_addons) %></strong> only/-</td>
-			<th colspan = "10"></th>
-		</tr>
-	</tfoot>
 </table>
 
+<% if params[:page].to_i == 1 %>
+<strong>Grand Total of <%= Date::MONTHNAMES[Date.today.month]%> : <%= currency(@project.sum(:price) + @sum_of_addons) %></strong> only/-</th>
+<% end %>
+
+<div class = 'col-sm-offset-4'>
 <%= will_paginate @project, renderer: BootstrapPagination::Rails  %>
+</div>
+
 
 <% end %>
 </div>
