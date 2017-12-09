@@ -7,9 +7,10 @@
 <div class = "row">
   <div class = "col-xs-12">
 <%= form_with(model: [ @customer, @customer.projects.build ], local: true, :html => {class: "form-horizontal", role: "form"}) do |form| %>
+
   <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :Project_Title %>
+      <%= form.label(:jname, "Project Title") %>
     </div>
     <div class = "col-sm-6">
       <%= form.text_field :jname, class: "form-control", placeholder: "Project Title", autofocus: true %>
@@ -18,7 +19,7 @@
    
    <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :Description %>
+      <%= form.label(:jdescription, "Description" )%>
     </div>
     <div class = "col-sm-6">
       <%= form.text_area :jdescription,rows: 5 ,class: "form-control",placeholder: "Description of Project" %>
@@ -27,7 +28,7 @@
    
    <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :price %>
+      <%= form.label(:price,"Project Cost") %>
     </div>
     <div class = "col-sm-3">
       <div class = "input-group">
@@ -40,7 +41,7 @@
    
    <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :Start_Date %>
+      <%= form.label(:start_time,"Starting Date") %>
     </div>
     <div class = "col-sm-3">
       <div class = "input-group date">
@@ -52,7 +53,7 @@
   
   <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :End_date %>
+      <%= form.label(:end_time,"Ending Date") %>
     </div>
     <div class = "col-sm-3">
       <div class = "input-group date">
@@ -64,7 +65,7 @@
   
   <div class = "form-group">
     <div class = "control-label col-sm-2">
-      <%= form.label :project_status %>
+      <%= form.label(:project_status,"Project Status") %>
     </div>
     <div class = "col-sm-4">
       <%= form.select :project_status, options_for_select([["In Progress",false],["Completed", true]], :selected => "In Progress") %>

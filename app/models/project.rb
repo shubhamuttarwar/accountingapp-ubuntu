@@ -7,5 +7,5 @@ class Project < ApplicationRecord
   # validates :price, presence: true
   # validates :start_time, presence: true
   # validates :end_time, presence: true
-  # validates :Project_Status, presence: true 
+  # validates :project_status, presence: true 
 end

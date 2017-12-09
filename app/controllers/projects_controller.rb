@@ -38,7 +38,8 @@ class ProjectsController < ApplicationController
        redirect_to customer_projects_path(@customer)
     else
       flash[:error] = "The END DATE cannot be earlier than the START DATE!"
-      redirect_to customer_path(@customer)
+      #redirect_to customer_path(@customer)
+      render :action => 'edit'
     end
   end
 
@@ -68,7 +69,7 @@ class ProjectsController < ApplicationController
   def totalsales
     beginning_of_month = Date.today.beginning_of_month
     end_of_month = Date.today.end_of_month
-    @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 7)
+    @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 7).order("created_at DESC")
     @sum_of_addons = 0
   end
 

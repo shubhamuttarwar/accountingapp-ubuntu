@@ -33,7 +33,7 @@
 	<% end %>
 </table>
 
-<% if params[:page].to_i == 1 %>
+<% if params[:page].to_i == 1  or @project.count < 7 %>
 <strong>Grand Total of <%= Date::MONTHNAMES[Date.today.month]%> : <%= currency(@project.sum(:price) + @sum_of_addons) %></strong> only/-</th>
 <% end %>
 
