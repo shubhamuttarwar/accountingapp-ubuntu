@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
 
     def show
     	@customer = Customer.find(params[:id])
+    	@project = @customer.projects.build
     end
 
 	def new

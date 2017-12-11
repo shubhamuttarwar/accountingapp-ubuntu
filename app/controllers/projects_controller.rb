@@ -31,16 +31,8 @@ class ProjectsController < ApplicationController
 
   def create
     @customer = Customer.find(params[:customer_id])
-    end_time = params[:end_time]
-    start_time = params[:start_time]
-    if ((end_time.to_i - start_time.to_i)/86400).to_i >= 0 #86400 is the numbers of seconds in one day
-       @project = @customer.projects.create(project_params)
-       redirect_to customer_projects_path(@customer)
-    else
-      flash[:error] = "The END DATE cannot be earlier than the START DATE!"
-      #redirect_to customer_path(@customer)
-      render :action => 'edit'
-    end
+    @project = @customer.projects.create(project_params)
+    redirect_to customer_projects_path(@customer)
   end
 
   def edit
