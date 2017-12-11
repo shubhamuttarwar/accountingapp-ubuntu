@@ -8,6 +8,7 @@ class AddonsController < ApplicationController
 	def create
 		@project = Project.find(params[:project_id])
 		@addon = @project.addons.create(addons_params)
+    flash[:success] = "Addon created successfuly."
 		redirect_to customer_project_path(@project.customer_id, @project)
 	end
 
@@ -19,6 +20,7 @@ class AddonsController < ApplicationController
   def update
     @project = Project.find(params[:project_id])
     @addon = @project.addons.update(addons_params)
+    flash[:success]= "Addon was updated succesfully."
     redirect_to customer_project_path(@project.customer_id,@project)
   end
     
@@ -28,6 +30,7 @@ class AddonsController < ApplicationController
      	@project = Project.find(params[:project_id])
     	@addon = @project.addons.find(params[:id])
     	@addon.destroy
+      flash[:danger]="Addon was deleted succesfully."
     	redirect_to customer_project_path(@project.customer_id, @project)
     end
 

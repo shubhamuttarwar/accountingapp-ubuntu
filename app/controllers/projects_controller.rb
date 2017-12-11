@@ -31,8 +31,14 @@ class ProjectsController < ApplicationController
 
   def create
     @customer = Customer.find(params[:customer_id])
-    @project = @customer.projects.create(project_params)
-    redirect_to customer_projects_path(@customer)
+    @project = @customer.projects.build(project_params)
+
+    if @project.save
+      flash[:success] = "Project was created successfully."
+      redirect_to customer_projects_path(@customer)
+    else
+      render 'customers/show'
+    end
   end
 
   def edit
@@ -44,6 +50,7 @@ class ProjectsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @project = @customer.projects.find(params[:id])
     @project.update(project_params)
+    flash[:success] ="Project was updated successfully."
     redirect_to customer_projects_path
   end
     
@@ -51,6 +58,7 @@ class ProjectsController < ApplicationController
     	@customer = Customer.find(params[:customer_id])
     	@project = @customer.projects.find(params[:id])
     	@project.destroy
+      flash[:danger] = "Project was deleted successfully."
     	redirect_to customer_path(@customer)
     end
 

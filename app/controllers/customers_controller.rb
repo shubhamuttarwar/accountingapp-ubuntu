@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
 
     def show
     	@customer = Customer.find(params[:id])
-    	@project = @customer.projects.build
+    	@project = @customer.projects.build(params[:project])
     end
 
 	def new
@@ -21,6 +21,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.new(customer_params)
 
 		if @customer.save
+			flash[:success] = "Customer was successfully created."
 			redirect_to customers_path
 		else
 			render 'new'
@@ -31,6 +32,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.find(params[:id])
 
 		if @customer.update(customer_params)
+			flash[:success] = "Customer was successfully updated."
 			redirect_to customers_path
 		else
 			render 'edit'
@@ -40,7 +42,7 @@ class CustomersController < ApplicationController
     def destroy
     	@customer = Customer.find(params[:id])
     	@customer.destroy
-
+        flash[:danger] = "Customer was deleted successfully."
     	redirect_to customers_path
     end
 

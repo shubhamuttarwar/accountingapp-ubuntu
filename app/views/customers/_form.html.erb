@@ -1,16 +1,5 @@
-<% if @customer.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@customer.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @customer.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
+
+<%= render 'shared/errors', obj: @customer %>
 <div class = 'row'>
   <div class = 'col-xs-12'>
       <%= form_for(@customer, local: true, :html => {class: "form-horizontal", role: "form"}) do |form| %>
