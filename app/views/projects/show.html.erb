@@ -51,7 +51,16 @@
 	<% else %>
 		<p><br></p>
 			<div class = "container">
-				<%= render 'projects/submitted-addon' %>
+				<% if @addons.empty? %>
+				
+					<div style ="padding-top: 30px;">
+					    <h2> There are no Addons associated with this project!</h2>
+					</div>
+	
+
+			    <% else %>    
+					<%= render 'projects/submitted-addon' %>
+				<% end %>
 
 				<p><br></p>
 				<hr>
