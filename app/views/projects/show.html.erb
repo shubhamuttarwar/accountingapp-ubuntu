@@ -34,91 +34,25 @@
 		<div class = "container">
 			<table class = "table table-condensed">
 				<tr>
-					<td>
-					    <h2>Add a Add-On:</h2>
-						<%= form_with(model: [@project, @project.addons.build ], local: true, :html => {class: "form-horizontal", role: "form"}) do |form| %>
-			  				<div class = "form-group">
-			  					<div class = "control-label col-sm-3">
-			    					<%= form.label :Service %>
-			    				</div>
-			    				<div class= "col-sm-6">
-			    					<%= form.text_field :service, class: "form-control", placeholder: "Service Name", autofocus: true %>
-			    				</div>
-			 				</div>
-			  
-			  				<div class = "form-group">
-			  					<div class = "control-label col-sm-3">
-			    					<%= form.label :Description %>
-			    				</div>
-			    				<div class= "col-sm-6">
-			    					<%= form.text_area :description, rows: 4 ,class: "form-control", placeholder: "Description" %>
-			    				</div>
-			  				</div>
-
-			  				<div class = "form-group">
-			    				<div class = "control-label col-sm-3">
-			    					<%= form.label :price %>
-			   	 				</div>
-								<div class = "col-sm-6">
-			      					<div class = "input-group">
-			        					<div class = "input-group-addon">₹</div>
-			    							<%= form.number_field :price, class: "form-control", placeholder: "Price"%>
-			    						<div class = "input-group-addon">.00</div>
-			      					</div>
-			  					</div>
-							</div>
-			  
-			   				<div class = "form-group">
-			   					<div class = "col-sm-offset-3 col-sm-10">
-			      					<%= form.submit class: 'btn btn-primary btn-lg' %>
-			  					</div>
-							</div>
-			 
-							<% end %>
-						</td>
-			
-			<td>
-				<h2> Add-ons Associated with this Project</h2><br>
-				<table class = "table table-hover table-striped">
-					<tr>
-						<th>Service</th>
-						<th>Description</th>
-						<th>Price</th>
-						<th colspan = 2></th>
-					</tr>
-					<% @addons.each do |cs| %>
-					<tr>
-						<td><%= cs.service %></td>
-						<td><%= cs.description %></td>
-						<td><%= currency(cs.price) %></td>
-						<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
-					</tr>
+					<td><%= render 'addons/forms' %></td>
+					<% if @addons.empty? %>
+					 <td>
+					 	<div style ="padding-top: 100px;">
+					 		<h4> There are currently no addons present!</h4>
+					 	</div>
+					 </td>    
+						
+					<% else %>
+					 <td><%= render 'projects/unsubmitted-addon' %></td>
 					<% end %>
-				</table>
-			</td>
+				</tr>
 		</div>
 
-		<% else %>
+	<% else %>
 		<p><br></p>
 			<div class = "container">
-				<h3> Add-ons Associated with this Project</h3><br>
-			<table class = "table table-hover table-striped">
-					<tr>
-						<th>Service</th>
-						<th>Description</th>
-						<th>Price</th>
-						<th colspan = 2></th>
-					</tr>
-					<% @addons.each do |cs| %>
-					<tr>
-						<td><%= cs.service %></td>
-						<td><%= cs.description %></td>
-						<td><%= currency(cs.price) %></td>
-						<td><%= link_to 'Edit', [:edit, cs.project, cs], class: 'btn btn-primary' %></td>
-						<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
-					</tr>
-					<% end %>
-				</table>
+				<%= render 'projects/submitted-addon' %>
+
 				<p><br></p>
 				<hr>
 				<% total_project_cost = @project.price + @addons.sum(:price) %>

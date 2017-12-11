@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def show
     @customer = Customer.find(params[:customer_id])
     @project = @customer.projects.find(params[:id])
-    @addons = @project.addons
+    @addons = @project.addons.all
 
     respond_to do |format|
       format.html

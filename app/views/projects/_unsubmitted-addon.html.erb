@@ -1,0 +1,17 @@
+<h2> Add-ons Associated with this Project</h2><br>
+<table class = "table table-hover table-striped">
+	<tr>
+		<th>Service</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th colspan = 2></th>
+	</tr>
+	<% @addons.each do |cs| %>
+	<tr>
+		<td><%= cs.service %></td>
+		<td><%= cs.description %></td>
+		<td><%= currency(cs.price) %></td>
+		<td><%= link_to 'Destroy', [cs.project, cs], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+	</tr>
+	<% end %>
+</table>
