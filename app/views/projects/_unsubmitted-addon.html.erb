@@ -1,11 +1,13 @@
 <h2> Add-ons Associated with this Project</h2><br>
 <table class = "table table-hover table-striped">
+	<thead>
 	<tr>
 		<th>Service</th>
 		<th>Description</th>
 		<th>Price</th>
 		<th colspan = 2></th>
 	</tr>
+</thead>
 	<% @addons.each do |cs| %>
 	<tr>
 		<td><%= cs.service %></td>

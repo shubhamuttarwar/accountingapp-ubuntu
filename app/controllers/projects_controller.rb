@@ -71,6 +71,15 @@ class ProjectsController < ApplicationController
     end_of_month = Date.today.end_of_month
     @project = Project.where("end_time >= ? AND end_time <= ? AND project_status = ?", beginning_of_month,end_of_month,true).paginate(:page => params[:page], per_page: 7).order("created_at DESC")
     @sum_of_addons = 0
+
+    respond_to do |format|
+      format.html
+      format.json 
+      format.pdf {render template: 'projects/monthly_sales', 
+        pdf: "Projects_for_#{Date::MONTHNAMES[Date.today.month]}", 
+        layout: 'pdf.html', 
+        :page_size => "Letter"}
+      end
   end
 
   private

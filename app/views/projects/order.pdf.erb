@@ -16,6 +16,7 @@
 <div class = "container">
 	<h4>Order Details </h4>
 <table class = "table">
+	<thead>
 	<tr>
 		<th>Customer Name</th>
 		<th>Project Name</th>
@@ -24,7 +25,7 @@
 		<th>Start Date</th>
 		<th>End Date</th>
 	</tr>
-
+    </thead>
 	<tr class = "active">
 		<td><%= @customer.name.capitalize %> <%= @customer.lastname.capitalize %></td>
 	  	<td><%= @project.jname %></td>

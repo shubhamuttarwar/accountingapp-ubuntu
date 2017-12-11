@@ -1,6 +1,16 @@
 
 <div class = "container">
-<%= link_to "Customers Listing", customers_path, class: 'btn btn-warning btn-sm' %>
+
+<table class = "totalsales">
+	<tr>
+		<td><%= link_to "Customers Listing", customers_path, class: 'btn btn-warning btn-sm' %></td>
+		<div>
+			<td><%= link_to "Monthly Projects(PDF)", totalsales_path(format: "pdf"), class: 'btn btn-success btn-sm' %></td>
+		</div>
+	</tr>
+</table>
+		
+	
 <p><br></p>
 <% if @project.empty? %>
 <h1 align = "center"> Oops!</h1>
@@ -8,6 +18,7 @@
 <% else %>
 <h1> Total Sales of <%= Date::MONTHNAMES[Date.today.month] %></h1>
 <table class = "table">
+	<thead>
 	<tr>
 		<th> Customer Name </th>
 		<th> Project Name</th>
@@ -18,6 +29,7 @@
 		<th> Ended At </th>
 		<th> Total Cost</th>
 	</tr>
+    </thead>
 	<% @project.each do |pro| %>
 	<% @sum_of_addons = @sum_of_addons + pro.addons.sum(:price)%>
 	<tr>

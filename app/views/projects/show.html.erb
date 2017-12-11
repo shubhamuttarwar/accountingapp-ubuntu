@@ -4,6 +4,7 @@
 <div class = "container">
 	<h3>Project Details</h3><br>
 	<table class ="table table-hover table-striped">
+		<thead>
 		<tr>
 			<th><strong>Customer</strong></th>
 			<th><strong>Job Name</strong></th>
@@ -14,6 +15,7 @@
 			<th><strong>Status</strong></th>
 			<th colspan = 3></th>
 		</tr>
+	</thead>
 		<tr>
 			<td><%= @customer.name.capitalize %> <%= @customer.lastname.capitalize %></td>
 			<td><%= @project.jname %></td>
