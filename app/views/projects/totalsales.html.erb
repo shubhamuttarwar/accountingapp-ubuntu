@@ -4,9 +4,13 @@
 <table class = "totalsales">
 	<tr>
 		<td><%= link_to "Customers Listing", customers_path, class: 'btn btn-warning btn-sm' %></td>
+		<% if @project.empty? %>
+
+		<% else %>
 		<div>
 			<td><%= link_to "Monthly Projects(PDF)", totalsales_path(format: "pdf"), class: 'btn btn-success btn-sm' %></td>
 		</div>
+		<% end %>
 	</tr>
 </table>
 		
