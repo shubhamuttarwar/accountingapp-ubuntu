@@ -14,6 +14,10 @@
   <% end %>
 <% end %>
 </div>
+
+<% if @projects.empty? %>
+
+<% else %>
 <div class = "container">
 <h3> Projects Pending for this Month</h3><br>
 </div>
@@ -46,7 +50,11 @@
     <% end %>
 </table>
 </div>
+<% end %>
 
+<% if @complete_projects.empty? %>
+
+<% else %>
 
 <div class = "container">
 <h3> Projects Completed this Month</h3><br>
@@ -75,3 +83,4 @@
     <% end %>
 </table>
 </div>
+<% end %>
