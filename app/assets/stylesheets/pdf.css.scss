@@ -7,3 +7,22 @@ body {
 	font-family: helvetica;
 }
 
+footer-pdf{
+	margin-top: 50px;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	border-top: 1px solid #eaeaea;
+	color: #777;
+	height: 100px;
+    width: 100%;
+    position: relative;
+}
+
+.copyright-pdf {
+	float: left;
+}
+
+.developed-pdf {
+	float: right
+}
+

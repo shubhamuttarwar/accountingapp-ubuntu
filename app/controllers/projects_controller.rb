@@ -23,8 +23,9 @@ class ProjectsController < ApplicationController
       format.pdf {render template: 'projects/order', 
         pdf: "Order_#{@customer.name.downcase}_#{@customer.lastname.downcase}", 
         layout: 'pdf.html', 
-        :page_size => "Letter"}
-      end
+        :page_size => "A4"
+        }
+    end
 
     @skip_footer = true
     end
