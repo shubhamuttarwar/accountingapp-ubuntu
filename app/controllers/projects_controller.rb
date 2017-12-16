@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
       format.pdf {render template: 'projects/monthly_sales', 
         pdf: "Projects_for_#{Date::MONTHNAMES[Date.today.month]}", 
         layout: 'pdf.html', 
-        :page_size => "Letter"}
+        :page_size => "A4"}
       end
   end
 
