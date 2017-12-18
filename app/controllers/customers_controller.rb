@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-	#http_basic_authenticate_with name: "shubham", password: "shubham09", except: [:index,:show]
+	http_basic_authenticate_with name: "shubham", password: "shubham09", except: [:index,:show]
     def index
     	@customer = Customer.search(params[:search])
     end
