@@ -2,14 +2,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 <div class = "invoice-date">
-<p><i>Invoice Date: <%= (Date.today).to_s(:long) %></i></p>
+	<p><i>Invoice Date: <%= (Date.today).to_s(:long) %></i> </p>
 </div>
 <div class = "container">
-<div id = "header">
-  <h1 align = "center"><strong> Ajey Gampawar Associates</strong></h1>
-  <p align = "center">SS-6, Second Floor, Golden Palace, W High Ct Rd, Beside Sudama Theater, Dharampeth, Nagpur, Maharashtra 440010<br>Phone: 0712 329 1011</p>
-  <p align = "center"></p>
-</div>
+	<div id = "header">
+		<p align ="center"><%= wicked_pdf_image_tag("pdf-logo.png", :alt => "logo", size: "300x100") %></p>
+		  <p align = "center">SS-6, Second Floor, Golden Palace, W High Ct Rd, Beside Sudama Theater, Dharampeth, Nagpur, Maharashtra 440010<br>Phone: 0712 329 1011</p>
+		  <p align = "center"></p>
+	</div>
 </div>
 <p><br></p>
 
@@ -59,6 +59,8 @@
 <% end %>
 	<% total_cost_of_project = @project.price + @project.addons.sum(:price) %>
 	<p><strong> Total Cost : <%= currency(total_cost_of_project) %></strong></p><br><br>
-	<p style = "float: right " align = "right"> Signature<br>(Ajey Gampawar)</p>
+	<p style = "float: left" align = "left"> Signature<br>(<%= @customer.name.capitalize %> <%= @customer.lastname.capitalize %>) </p>
+	<p style = "float: right margin-bottom: 20px; " align = "right"> Signature<br>(Ajey Gampawar)</p>
 </div>
     
+ <!--<h1 align = "center"><strong> Ajey Gampawar Associates</strong></h1>-->
