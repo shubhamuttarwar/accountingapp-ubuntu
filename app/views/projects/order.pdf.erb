@@ -2,8 +2,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 <div class = "invoice-date">
-	<p><i>Invoice Date: <%= (Date.today).to_s(:long) %></i> </p>
+	<div class = "container">
+	<span style ="float: left; font-size: 14px;"><i>Invoice Date: <%= (Date.today).to_s(:long) %></i></span>
+	<span style="float: right; color: #777; font-size: 14px;">Project Developed By: <strong>Shubham Uttarwar</strong></span>
 </div>
+</div>
+<p><br></p>
 <div class = "container">
 	<div id = "header">
 		<p align ="center"><%= wicked_pdf_image_tag("pdf-logo.png", :alt => "logo", size: "300x100") %></p>
