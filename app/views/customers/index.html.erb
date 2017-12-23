@@ -18,7 +18,14 @@
 
 <% if @customer.empty? %>
 <h1 align = "center"> Oops! </h1>
-<h2 align= "center">Currently there are no Customers created!</h2><br>
+<h3 align = "center">Your search was aborted due to one of the following reasons.</h3>
+<h4> <br>
+<ul>
+	<li>There are no customers created!</li>
+	<li>The customer you are trying to find is not in the database.</li>
+</ul>
+</h4><br>
+ <p align = "center"><strong>Note: </strong>Please Make sure that you have typed the correct spelling.</p>
 <% else %>
 <table class = "table table-hover">
 	<thead>
