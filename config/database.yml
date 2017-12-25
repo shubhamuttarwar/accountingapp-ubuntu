@@ -6,7 +6,7 @@
 #
 default: &default
   adapter: postgresql
-  encoding: UTF-8
+  encoding: WIN1252
   host: localhost
   pool: 5
   timeout: 5000
@@ -14,9 +14,9 @@ default: &default
 development:
   <<: *default
   database: accountingapp_development
-  encoding: UTF-8
-  username: chris
-  password: shubham95
+  encoding: WIN1252
+  username: Shubham_Uttarwar
+  password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,13 +24,13 @@ development:
 test:
   <<: *default
   database: accountingapp_test
-  encoding: UTF_8
-  username: chris
-  password: shubham95
+  encoding: WIN1252
+  username: Shubham_Uttarwar
+  password: 
 
 production:
   <<: *default
   database: accountingapp_production
-  encoding: UTF-8
-  username: chris
-  password: shubham95
+  encoding: WIN1252
+  username: Shubham_Uttarwar
+  password: 
